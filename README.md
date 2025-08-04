@@ -48,4 +48,5 @@ The following VLMs can be installed in this shared environment:
 
 ### Evaluation Input Files
 
+The image-captioning captioning_ft_full CSV file: https://raw.githubusercontent.com/papersubmit1/landsat30-au/refs/heads/main/lightweight_files/caption_gt/captioning_ft_full.csv
 The VQA one‑shot CSV file: https://raw.githubusercontent.com/papersubmit1/landsat30-au/refs/heads/main/lightweight_files/one_shot_gt/one_shot.csv
