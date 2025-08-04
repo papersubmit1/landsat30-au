@@ -1,10 +1,21 @@
-# Dataset Construction
+# -*- coding: utf-8 -*-
+"""
+This script defines functions to generate structured prompts for various Vision
+Language Model (VLM) tasks related to satellite imagery analysis, including
+cloud filtering, land cover classification, image captioning, and Visual
+Question Answering (VQA) generation and evaluation.
+"""
 
+# =============================================================================
 # Stage 1: Imagery and Metadata Preparation
+# =============================================================================
 
+# -----------------
 # Landsat imagery
+# -----------------
 
 def cloud_filter_prompt():
+    """Generates prompts to classify a satellite image as 'cloudy' or 'clear'."""
     system_prompt = """You are an advanced assistant specializing in analyzing optical satellite images. Your task is to classify each satellite image as either "cloudy" or "clear".
 
 Definitions:
@@ -22,42 +33,47 @@ Respond only with "cloudy" or "clear"."""
     return system_prompt, user_prompt
 
 
+# =============================================================================
 # Stage 2: Fine-tuning VLMs for Landsat Tasks
+# =============================================================================
 
+# -------------------------
 # Region classification
+# -------------------------
 
 def region_classification_prompt():
-    system_prompt = (
-        "You are an advanced assistant for analyzing an optical satellite image. "
-        "Your role is using the information from image to accurate answers to the questions to the scene."
-        "Analyze an optical satellite image to classify land cover types. "
-        "Focus on six classifications: Cultivated Terrestrial Vegetation, Natural Terrestrial Vegetation, Natural Aquatic Vegetation, Artificial Surface, Natural Bare Surfaces, and Water. "
-        "Pay particular attention to Cultivated Terrestrial Vegetation, Artificial Surface, and Water.\n"
-    )
+    """Generates prompts for detailed land cover classification."""
+    system_prompt = """You are an advanced assistant for analyzing an optical satellite image. Your role is using the information from image to accurate answers to the questions to the scene.
+Analyze an optical satellite image to classify land cover types. Focus on six classifications: Cultivated Terrestrial Vegetation, Natural Terrestrial Vegetation, Natural Aquatic Vegetation, Artificial Surface, Natural Bare Surfaces, and Water. Pay particular attention to Cultivated Terrestrial Vegetation, Artificial Surface, and Water.
+"""
 
-    user_prompt_txt = (
-        "Answer these questions:\n"
-        "1. What land cover classifications can be found in the image?\n"
-        "2. Divide the image into five sections: top-left, bottom-left, top-right, bottom-right, and center. "
-        "For each, list classifications in order of area occupied.\n"
-        "Use this structured format as output:\n"
-        "{'Land Cover Classifications in Optical Image': [list], 'Top-Left Area': [list], 'Top-Right Area': [list], 'Bottom-Left Area': [list], 'Bottom-Right Area': [list], 'Centre Area': [list]}\n\n"
-        "Examples\n"
-        '{"Land Cover Classifications in Optical Image": ["Natural Terrestrial Vegetation", "Cultivated Terrestrial Vegetation", "Artificial Surface"],'
-        '"Top-Left Area": ["Cultivated Terrestrial Vegetation", "Artificial Surface"], '
-        '"Top-Right Area": ["Natural Terrestrial Vegetation", "Cultivated Terrestrial Vegetation"], '
-        '"Bottom-Left Area": ["Cultivated Terrestrial Vegetation", '
-        '"Natural Bare Surface"], "Bottom-Right Area": ["Natural Terrestrial Vegetation", "Natural Bare Surface"], '
-        '"Centre Area": ["Natural Bare Surface"]}'
-    )
+    user_prompt_txt = """Answer these questions:
+1. What land cover classifications can be found in the image?
+2. Divide the image into five sections: top-left, bottom-left, top-right, bottom-right, and center. For each, list classifications in order of area occupied.
+Use this structured format as output:
+{'Land Cover Classifications in Optical Image': [list], 'Top-Left Area': [list], 'Top-Right Area': [list], 'Bottom-Left Area': [list], 'Bottom-Right Area': [list], 'Centre Area': [list]}
 
-    # Return the system prompt, the user prompt text, and an identifier for this prompt type.
+Examples
+{"Land Cover Classifications in Optical Image": ["Natural Terrestrial Vegetation", "Cultivated Terrestrial Vegetation", "Artificial Surface"],"Top-Left Area": ["Cultivated Terrestrial Vegetation", "Artificial Surface"], "Top-Right Area": ["Natural Terrestrial Vegetation", "Cultivated Terrestrial Vegetation"], "Bottom-Left Area": ["Cultivated Terrestrial Vegetation", "Natural Bare Surface"], "Bottom-Right Area": ["Natural Terrestrial Vegetation", "Natural Bare Surface"], "Centre Area": ["Natural Bare Surface"]}"""
+
     return system_prompt, user_prompt_txt
 
 
+# ------------------
 # Image captioning
+# ------------------
 
 def image_captioning_prompt(landcover, landuse):
+    """
+    Generates prompts for creating a detailed caption from image and metadata.
+
+    Args:
+        landcover (str): A string containing land cover information.
+        landuse (str): A string containing land use information.
+
+    Returns:
+        tuple: A tuple containing the system prompt and the user prompt.
+    """
     system_prompt = """Generate a detailed and concise caption from an optical satellite image using provided metadata.
 
 * Please use image content and land cover information to cross-validate land use information. Please use verifed land use information to finish the caption.
@@ -74,24 +90,37 @@ def image_captioning_prompt(landcover, landuse):
 * Caption should be in plain text, clear, and concise without markdown or line breaks."""
 
     user_prompt = (
-        "The following are the metadata to this satellite image:\n "
-        "Land Cover Information:\n "
+        "The following are the metadata to this satellite image:\n"
+        "Land Cover Information:\n"
         f"{landcover}\n"
-        "Land Use Information:\n "
+        "Land Use Information:\n"
         f"{landuse}"
     )
 
     return system_prompt, user_prompt
 
 
+# =============================================================================
 # Stage 3: Multi-Stage Caption and VQA Generation
+# =============================================================================
 
+# --------------------
 # Caption refinement
+# --------------------
 
 def add_missing_object_prompt(caption):
-    system_prompt = """You are an advanced assistant specializing in analyzing optical satellite images.  You will get a caption about one image. Your task is to find and describe special missing patterns or objects that appear in the image but not in caption. 
+    """
+    Generates prompts to identify missing objects in a caption.
 
-Only describe what is clearly visible - do NOT mention anything that is absent or not shown in the image. Avoid making statements about what is not present. 
+    Args:
+        caption (str): The existing image caption.
+
+    Returns:
+        tuple: A tuple containing the system prompt and the user prompt.
+    """
+    system_prompt = """You are an advanced assistant specializing in analyzing optical satellite images. You will get a caption about one image. Your task is to find and describe special missing patterns or objects that appear in the image but not in caption.
+
+Only describe what is clearly visible - do NOT mention anything that is absent or not shown in the image. Avoid making statements about what is not present.
 
 Do not start the response with phrases like "In addition to the features described in the caption," or similar wording—just directly state the missing object information.
 
@@ -105,9 +134,18 @@ This will instruct me to avoid referencing absent features in my responses."""
 
 
 def add_missing_connection_prompt(caption):
-    system_prompt = """You are an advanced assistant specializing in analyzing optical satellite images.  You will get a caption about one image. Your task is to find and describe special missing connections between objects that appear in the image but not in caption. 
+    """
+    Generates prompts to identify missing connections between objects in a caption.
 
-Only describe what is clearly visible - do NOT mention anything that is absent or not shown in the image. Avoid making statements about what is not present. 
+    Args:
+        caption (str): The existing image caption.
+
+    Returns:
+        tuple: A tuple containing the system prompt and the user prompt.
+    """
+    system_prompt = """You are an advanced assistant specializing in analyzing optical satellite images. You will get a caption about one image. Your task is to find and describe special missing connections between objects that appear in the image but not in caption.
+
+Only describe what is clearly visible - do NOT mention anything that is absent or not shown in the image. Avoid making statements about what is not present.
 
 Do not start the response with phrases like "In addition to the features described in the caption," or similar wording—just directly state the missing connection or relationship information.
 
@@ -121,6 +159,15 @@ This will instruct me to avoid referencing absent features in my responses."""
 
 
 def caption_keep_or_delete_prompt(given_caption):
+    """
+    Generates prompts to verify if a caption accurately reflects an image.
+
+    Args:
+        given_caption (str): The caption to be evaluated.
+
+    Returns:
+        tuple: A tuple containing the system prompt and the user prompt.
+    """
     system_prompt = """Check the given image and its corresponding caption (a single sentence) to determine if the caption accurately reflects the content of the image. Respond with either "delete" if the caption does not match the image content or "keep" if it does.
 
 # Output Format
@@ -144,7 +191,17 @@ def caption_keep_or_delete_prompt(given_caption):
 
     return system_prompt, user_prompt
 
+
 def extract_key_objects_prompt(given_caption):
+    """
+    Generates prompts to extract key earth observation objects from a caption.
+
+    Args:
+        given_caption (str): The caption from which to extract objects.
+
+    Returns:
+        tuple: A tuple containing the system prompt and the user prompt.
+    """
     system_prompt = """Extract the key objects directly from the provided caption, focusing on earth observation elements such as natural features, human-made structures, and land use areas. These objects must explicitly appear in the caption and should emphasize notable earth science patterns like oxbow bends.
 
 # Steps
@@ -187,9 +244,20 @@ def extract_key_objects_prompt(given_caption):
     return system_prompt, user_prompt
 
 
+# ----------------
 # VQA generation
+# ----------------
 
 def generate_vqa_prompt(object_list):
+    """
+    Generates prompts to create VQA questions from an object list.
+
+    Args:
+        object_list (list): A list of key object strings.
+
+    Returns:
+        tuple: A tuple containing the system prompt and the user prompt.
+    """
     system_prompt = """You are an AI that generates multiple-choice questions based on a given image and a key object list. Your questions should focus on four aspects: scene/land-cover identification, object presence, counting, and spatial relations.
 
 Instructions:
@@ -290,15 +358,15 @@ Example Output:
         }
     ]
 }
-Use this structure for all outputs.
-"""
+Use this structure for all outputs."""
     user_prompt = f"object list: [{object_list}]"
 
     return system_prompt, user_prompt
 
 
-
+# =============================================================================
 # Benchmark Evaluation
+# =============================================================================
 
 EVALUATE_VLM_CAPTION_SYSTEM_PROMPT = """You are an expert model for describing satellite or aerial images of landscapes, 
 where each image pixel represents a 30-meter ground resolution. Use detailed, domain-specific language 
@@ -308,12 +376,10 @@ caption that covers both the dominant and minor elements in the image, referenci
 (top-left, center, etc.) and notable connections (such as roads, patch boundaries, etc.). 
 Base your descriptions only on observable features in the image, keeping the pixel resolution in mind."""
 
-
 EVALUATE_VLM_CAPTION_USER_PROMPT = """Each image pixel corresponds to 30 meters on the ground. Respond in plain 
 text only, with no formatting, lists, or special markup—just a single paragraph. 
 Now, describe the following image in the same detailed manner, considering that each pixel represents 
 30 meters:"""
-
 
 EVALUATE_VLM_VQA_SYSTEM_PROMPT = """
 You are an evaluation agent for remote–sensing VQA.
@@ -353,17 +419,19 @@ Answer: River delta
 
 
 def evaluate_vlm_caption_zero_shot():
+    """Returns prompts for zero-shot VLM caption evaluation."""
     system_prompt = EVALUATE_VLM_CAPTION_SYSTEM_PROMPT
     user_prompt = EVALUATE_VLM_CAPTION_USER_PROMPT
-
     return system_prompt, user_prompt
 
 
 def evaluate_vlm_caption_one_shot():
+    """Returns prompts and an example for one-shot VLM caption evaluation."""
     system_prompt = EVALUATE_VLM_CAPTION_SYSTEM_PROMPT
-
     user_prompt = EVALUATE_VLM_CAPTION_USER_PROMPT
 
+    # Note: 'VLM_TO_CAPTION_USER_PROMPT' was in the original code. This might be a
+    # typo for 'EVALUATE_VLM_CAPTION_USER_PROMPT'. It is left as is per instructions.
     shot_blocks = [
         {
             "image_path": "DEA_VLM_images/ga_ls9c_ard_3-x60y28-2024-patches/ga_ls9c_ard_3-x60y28-2024-r331nmx-2024-07-29-raw.png",
@@ -375,11 +443,22 @@ def evaluate_vlm_caption_one_shot():
 
 
 def evaluate_vlm_vqa_one_shot(one_shot_df, question_type, question_text, option_text):
+    """
+    Returns prompts and an example for one-shot VLM VQA evaluation.
+
+    Args:
+        one_shot_df (pd.DataFrame): DataFrame with one-shot examples.
+        question_type (str): The type of question for filtering examples.
+        question_text (str): The question to be answered.
+        option_text (str): The multiple-choice options for the question.
+
+    Returns:
+        tuple: A tuple of (shot_blocks, system_prompt, user_prompt).
+    """
     system_prompt = EVALUATE_VLM_VQA_SYSTEM_PROMPT
     one_shot_df = one_shot_df[one_shot_df["question_type"] == question_type]
 
     shot_blocks = []
-
     for _, row in one_shot_df.iterrows():
         shot_blocks.append(
             {
@@ -390,13 +469,20 @@ def evaluate_vlm_vqa_one_shot(one_shot_df, question_type, question_text, option_
         )
 
     user_prompt = f"Question:{question_text}\n\nOptions: {option_text}\n"
-
     return shot_blocks, system_prompt, user_prompt
 
 
 def evaluate_vlm_vqa_zero_shot(question_txt, option_txt):
+    """
+    Returns prompts for zero-shot VLM VQA evaluation.
+
+    Args:
+        question_txt (str): The question to be answered.
+        option_txt (str): The multiple-choice options for the question.
+
+    Returns:
+        tuple: A tuple containing the system prompt and the user prompt.
+    """
     system_prompt = EVALUATE_VLM_VQA_SYSTEM_PROMPT
-
     user_prompt = f"Question:{question_txt}\n\nOptions: {option_txt}\n"
-
     return system_prompt, user_prompt
