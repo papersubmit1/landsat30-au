@@ -48,8 +48,32 @@ The following VLMs can be installed in this shared environment:
 
 ### Evaluation Input Files
 
-The image-captioning captioning_ft_full CSV file: https://raw.githubusercontent.com/papersubmit1/landsat30-au/refs/heads/main/lightweight_files/caption_gt/captioning_ft_full.csv
+The following CSV files are required for the evaluation process. They contain the ground truth data for various tasks.
 
-The VQA Landsat30-AU-VQA-test CSV file: https://raw.githubusercontent.com/papersubmit1/landsat30-au/refs/heads/main/lightweight_files/vqa_gt/Landsat30-AU-VQA-test.csv
+*   **Image Captioning (Full Set):**
+    *   [captioning_ft_full.csv](https://raw.githubusercontent.com/papersubmit1/landsat30-au/main/lightweight_files/caption_gt/captioning_ft_full.csv)
+*   **Visual Question Answering (VQA Test Set):**
+    *   [Landsat30-AU-VQA-test.csv](https://raw.githubusercontent.com/papersubmit1/landsat30-au/main/lightweight_files/vqa_gt/Landsat30-AU-VQA-test.csv)
+*   **Visual Question Answering (One-Shot):**
+    *   [one_shot.csv](https://raw.githubusercontent.com/papersubmit1/landsat30-au/main/lightweight_files/one_shot_gt/one_shot.csv)
 
-The VQA one‑shot CSV file: https://raw.githubusercontent.com/papersubmit1/landsat30-au/refs/heads/main/lightweight_files/one_shot_gt/one_shot.csv
+---
+
+## Dataset Construction
+
+### Landsat Imagery
+
+The generation of the Landsat imagery dataset requires the Digital Earth Australia (DEA) Sandbox environment. [1] This is a specialized platform for analyzing Earth observation data.
+
+**Requirements:**
+
+1.  **DEA Sandbox Account:** You must first register for a free account to access the necessary environment. Please follow the official guidance to set up your account:
+    *   **Registration:** [DEA Sandbox Homepage](https://app.sandbox.dea.ga.gov.au/) [1]
+
+2.  **Execution Script:** The primary script for processing the imagery is designed to run exclusively within the DEA Sandbox.
+    *   **Script:** [Landsat_imagery.py](https://github.com/papersubmit1/landsat30-au/blob/main/Dataset%20Construction/Stage%201%3A%20Imagery%20and%20Metadata%20Preparation/Landsat_imagery.py)
+
+3.  **Input GeoJSON:** This script requires the following GeoJSON file, which defines the geographical areas of interest.
+    *   **GeoJSON File:** [keep_4_landuse_metadata-categories.geojson](https://github.com/papersubmit1/landsat30-au/blob/main/lightweight_files/geojson_files/keep_4_landuse_metadata-categories.geojson)
+
+
