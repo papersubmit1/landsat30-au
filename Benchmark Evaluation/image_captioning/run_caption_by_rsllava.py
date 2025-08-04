@@ -43,7 +43,7 @@ Now, describe the following image in the same detailed manner, considering that 
 30 meters:"""
 
 
-def run_vlm_by_caption_zero_shot():
+def evaluate_vlm_caption_zero_shot():
     system_prompt = VLM_TO_CAPTION_SYSTEM_PROMPT
 
     user_prompt = VLM_TO_CAPTION_USER_PROMPT
@@ -51,7 +51,7 @@ def run_vlm_by_caption_zero_shot():
     return system_prompt, user_prompt
 
 
-def run_vlm_by_caption_one_shot():
+def evaluate_vlm_caption_one_shot():
     system_prompt = VLM_TO_CAPTION_SYSTEM_PROMPT
 
     user_prompt = VLM_TO_CAPTION_USER_PROMPT
@@ -224,18 +224,18 @@ def generate_rsllava(
         bar = tqdm(total=len(df), desc="RS‑LLaVA Caption")
         for _, row in df.iterrows():
             tgt_img = fetch_image(BASE_URL + row["image_path"].strip())
-            sys_p, tgt_q = run_vlm_by_caption_zero_shot()
+            sys_p, tgt_q = evaluate_vlm_caption_zero_shot()
             if tgt_img is None:
                 bar.update()
                 continue
             turns: List[Tuple[str, Image.Image | None]] = []
             if mode == "one_shot":
-                sub, _, _ = run_vlm_by_caption_one_shot()
+                sub, _, _ = evaluate_vlm_caption_one_shot()
 
                 ex = sub[0]
                 ex_img = fetch_image(BASE_URL + ex["image_path"].strip())
                 if ex_img is not None:
-                    _, ex_q = run_vlm_by_caption_zero_shot()
+                    _, ex_q = evaluate_vlm_caption_zero_shot()
                     turns.extend([(ex_q, ex_img), (ex["caption"], None)])
 
             turns.append((tgt_q, tgt_img))

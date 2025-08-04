@@ -32,7 +32,7 @@ Now, describe the following image in the same detailed manner, considering that 
 30 meters:"""
 
 
-def run_vlm_by_caption_zero_shot():
+def evaluate_vlm_caption_zero_shot():
     system_prompt = VLM_TO_CAPTION_SYSTEM_PROMPT
     user_prompt = VLM_TO_CAPTION_USER_PROMPT
     return system_prompt, user_prompt
@@ -121,7 +121,7 @@ def generate(
             history: List[Tuple[str, str]] | None = None
 
             # build target question with <image> placeholder
-            sys_p, usr_p = run_vlm_by_caption_zero_shot()
+            sys_p, usr_p = evaluate_vlm_caption_zero_shot()
             question_prompt = ensure_image_token(f"{sys_p}\n\n{usr_p}")
 
             # one‑shot exemplar
