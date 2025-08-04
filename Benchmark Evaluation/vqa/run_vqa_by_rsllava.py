@@ -64,7 +64,7 @@ ONE_SHOT_CSV = Path(
 # I/O helpers
 # ─────────────────────────────────────────────────────────────────────────────
 BASE_URL = (
-    "https://dea-public-data-dev.s3.ap-southeast-2.amazonaws.com/projects/dea-vqa/"
+    "PLEASE PUT YOUR IMAGE FOLER FULL PATH HERE"
 )
 
 
