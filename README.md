@@ -48,12 +48,18 @@ The following VLMs can be installed in this shared environment:
 
 ### Evaluation Input Files
 
-The following CSV files are required for the evaluation process. They contain the ground truth data for various tasks.
+The following CSV/JSON files are required for the evaluation process. They contain the ground truth data for various tasks.
+
+Note: we are using the val subset (15% of overall dataset) to fine-tune datatset.
 
 *   **Image Captioning (Image Captioning Test Set):**
     *   [captioning_ft_full.csv](https://raw.githubusercontent.com/papersubmit1/landsat30-au/main/lightweight_files/caption_gt/captioning_ft_full.csv)
+*   **Image Captioning (Image Captioning Fine-Tune Set):**
+    *   [caption_benchmark_dataset_val_ft.jsonl](https://huggingface.co/datasets/supermarkioner/Landsat30-AU/blob/main/ground_truth_files/caption_benchmark_dataset_val_ft.jsonl)
 *   **Visual Question Answering (VQA Test Set):**
     *   [Landsat30-AU-VQA-test.csv](https://raw.githubusercontent.com/papersubmit1/landsat30-au/main/lightweight_files/vqa_gt/Landsat30-AU-VQA-test.csv)
+*   **Visual Question Answering (VQA Fine-Tune Set):**
+    *   [vqa_benchmark_dataset_val_ft.jsonl](https://huggingface.co/datasets/supermarkioner/Landsat30-AU/blob/main/ground_truth_files/vqa_benchmark_dataset_val_ft.jsonl)
 *   **Visual Question Answering (One-Shot Set):**
     *   [one_shot.csv](https://raw.githubusercontent.com/papersubmit1/landsat30-au/main/lightweight_files/one_shot_gt/one_shot.csv)
 
