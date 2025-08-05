@@ -1,0 +1,897 @@
+altered land cover
+bedrock
+canyons
+circular features
+circular or rounded features
+cleared area
+cleared areas
+cleared land
+cleared plots
+clearing
+clearings
+compacted sediment
+constructed surface
+deforested landscape
+degraded land surface
+degraded land
+dendritic pattern
+denser
+developed area
+developed areas
+developed land
+distributaries
+drainage ditches
+drainage feature
+drainage features
+drainage
+dry
+dryland environment
+dryland environments
+ephemeral drainage features
+erosion
+erosional patterns
+estuarine environment
+estuary
+fine-grained sediments
+finer-grained sediment
+fluvial erosion
+fluvial feature
+fluvial features
+fluvial processes
+fluvial system
+foam
+geological features
+geological formation
+geological formations
+glacial deposits
+gorges
+gullies
+high relief
+human-modified land cover
+ice accumulation
+ice patches
+impact crater
+inlets
+interfluve
+iron-rich soils
+land cover
+landmass
+light-colored sediments
+lighter-toned patches
+lighter-toned surface
+linear feature
+lithological unit
+lithology
+meander bends
+mesa
+muddy margins
+narrow strip of land
+natural
+natural areas
+natural drainage features
+ocean
+open areas
+open land areas
+open land
+organic matter
+paleochannel
+paleochannels
+paleodrainage networks
+patch boundaries
+plains
+reddish-brown soil
+reforestation
+rugged topography
+rural setting
+sea
+seasonally inundated areas
+sediment accumulation zones
+sediment deposition
+sediment deposits
+sediment flats
+sediment
+sedimentary deposits
+small clearings
+soil exposures
+soil moisture
+soil
+terrestrial land cover
+terrestrial landmass
+topographic boundary
+topographic lows
+topographic relief
+topography
+transitional zones
+uncultivated land
+undeveloped land
+martian landscapes
+t-junction
+alluvial network
+alluvial soils
+altered land surface
+altered soil
+altered surfaces
+anthropogenic clearings
+anthropogenic developments
+anthropogenic ditch
+anthropogenic edge
+anthropogenic features
+anthropogenic land uses
+anthropogenic or cleared land
+apron areas
+archipelago
+areas of erosion
+areas of higher elevation
+artificial boundaries
+artificial elements
+artificial features
+artificial linear elements
+asphalt
+backswamps
+bank
+banks
+bars
+beige surface
+bends
+boulders
+boundaries
+boundary line
+boundary lines
+boundary
+breakwater
+bright area
+bright surfaces
+brown areas
+brown land cover
+brown land covers
+brown land
+brown patches
+brown soil
+brownish areas
+brownish land
+brownish patches
+brownish soil
+built environment
+buoys
+canopy cover
+canopy density
+canopy
+canyon
+circular area
+circular areas
+circular feature
+circular green patches
+circular patches of dense
+circular patches
+circular patterns
+circular plots
+clear-cut area
+cleared land areas
+cleared land plot
+cleared land zone
+cleared lands
+cleared open land
+cleared patch
+cleared patches
+cleared region
+cleared space
+cleared spaces
+cleared surfaces
+cleared zone
+cleared zones
+community
+compacted dry soil
+compacted earth
+compacted soil
+concentrated soil deposit
+concrete slabs
+coniferous stands
+constructed area
+constructed feature
+constructed or modified surface
+constructed surfaces
+construction
+continental shelf
+contour lines
+contour
+coral formations
+cove
+coves
+cracked dry earth
+cracked surface type
+cracks
+crater
+crevice
+crevices
+currents
+curved landmass
+dark brown patches
+dark green land
+dark patch
+dark patches
+dark sinuous linear features
+dark spots
+darker brown patches
+darker brown region
+darker brown soil
+darker linear feature
+darker material
+darker patch
+darker patches
+darker reddish-brown patch
+darker soil patches
+darker soil
+debris
+deforestation
+deforested area
+deforested areas
+deforested land
+deforested regions
+deforested zones
+degraded land cover
+degraded soil zone
+degraded soil
+degraded soils
+dendritic networks
+dendritic patterns
+dense thicket
+deposit of coarser material
+desiccation cracks
+developed plots
+developed regions
+developed surfaces
+developed zone
+developed zones
+different land use
+dike
+dirt
+dissected plain
+ditches
+diverse land cover
+drainage ditch
+drainage pattern
+drainage patterns
+drier
+drier land
+drier soil
+dry area
+dry areas
+dry compacted soil
+dry conditions
+dry creek beds
+dry drainage patterns
+dry earth
+dry environment
+dry eroded surfaces
+dry ground cover
+dry ground surface
+dry ground
+dry gullies
+dry land
+dry landscape
+dry open land
+dry or cleared land surfaces
+dry plain
+dry soil
+dry surface
+dry surroundings
+dry terrestrial land cover
+dry undeveloped land
+dryland region
+dryland
+dryness
+dust accumulations
+dust patches
+dust
+dusty surfaces
+earth covers
+earth surfaces
+earth tones
+earth
+earth-toned areas
+earth-toned surfaces
+earthen landscape
+earthen surface
+earthen surfaces
+earthy surfaces
+earthy tones
+edge habitats
+elevated areas
+elevated land
+elevated outcrop
+elevation change
+elevation changes
+elevation gradients
+elevation variations
+eroded area
+eroded areas
+eroded banks
+eroded environments
+eroded features
+eroded formations
+eroded gullies
+eroded land
+eroded landscape
+eroded outcrops
+eroded patches
+eroded patterns
+eroded plain
+eroded plains
+eroded sedimentary material
+eroded soil
+eroded surfaces
+eroded textures
+erosion area
+erosion feature
+erosion features
+erosion gullies
+erosion patterns
+erosion processes
+erosion surfaces
+erosion-affected zone
+erosion-formed gullies
+erosional features
+estuaries
+estuarine area
+fallen leaves
+fault line
+fault lines
+fault zone
+fine-grained soil or sediment
+finer sediment
+finer-grained sediments
+fissures
+flat area
+flat areas
+flat land
+flat landscape
+flat plains
+flat soil
+flat topography
+flatlands
+flatter areas
+flooded area
+flooded region
+fluvial activity
+fluvial erosion features
+fluvial erosion patterns
+fluvial geomorphic features
+fluvial landscape
+footpaths
+foundations
+fractured bedrock
+fractures
+fracturing patterns
+fracturing
+fragmented clearings
+fragmented land
+fragmented patches
+frozen ground surface
+furrows
+gardens
+geological activity
+geological fault line
+geological fault
+geological feature
+geological fracture
+geological fractures
+geological strata
+geological surface
+geological unit
+graded soil
+granular soil
+gray patches
+green area
+green areas
+green cover
+green land cover
+green land covers
+green land
+green patch
+green patches
+green plants
+green space
+green spaces
+greenish patches
+grid-like pattern
+harbors
+haze
+horizontal band
+horizontal strata
+human activity
+human development
+human habitation
+human modification
+human-altered landscapes
+human-made divisions
+human-made features
+human-made land division
+human-modified areas
+human-modified land use
+human-modified land
+human-modified landscapes
+human-modified zones
+ice
+impervious materials
+impervious surfaces
+individual plots
+inland land areas
+inland landmass
+inlet
+intertidal zone
+intertidal zones
+iron oxide deposits
+iron oxide
+iron oxide-rich soil
+iron oxide-rich surfaces
+iron-oxide-rich soils
+iron-rich soil
+irregular area
+irregular darker patches
+irregular light-colored patches
+irregular patches of darker brown
+irregular patches
+irregular polygonal patches
+irregular shapes
+irregularly shaped cleared area
+irregularly shaped patches
+isolated clearings
+jointing systems
+jointing
+joints
+jungle
+karstic region
+land area
+land clearing
+land cover patches
+land cover type
+land cover types
+land cover zones
+land covers
+land formations
+land management practices
+land management
+land masses
+land patches
+land strip
+land surfaces
+land use changes
+land use patterns
+land use zones
+land use
+land
+land-sea boundary
+land-use boundaries
+land-use change
+landmasses
+large clearing
+less developed land
+light green area
+light soil deposit
+light-colored patches
+light-colored soil
+light-toned area
+lighter beige-toned areas
+lighter brown patches
+lighter gray patches
+lighter green areas
+lighter green patches
+lighter patches
+lighter sediment
+lighter soil
+lighter tan patches
+lighter tan surface
+lighter turquoise band
+lighter-colored areas
+lighter-colored patches
+lighter-colored sediment accumulation
+lighter-colored sediment
+lighter-toned circular to oval patches
+linear boundaries
+linear boundary
+linear cracks
+linear drainage feature
+linear drainage features
+linear erosion features
+linear erosional features
+linear features
+linear fractures
+linear grooves
+linear patterns
+lithic surfaces
+littoral zone
+loess deposits
+loess
+logged areas
+logging
+loose sediment
+loose soil
+looser sediment
+low-intensity land use
+low-lying landmasses
+low-lying plants
+mainland
+man-made feature
+man-made features
+man-made installations
+man-made surfaces
+managed areas
+managed green space
+managed land use
+managed land
+managed landscape
+managed landscapes
+managed open land
+managed plots
+managed soils
+meadow
+meadows
+meandering drainage feature
+meandering feature
+meandering linear feature
+meandering patterns
+meanders
+mesas
+minor anthropogenic features
+minor clearings
+mixed brown-green surface
+mixed land cover
+mixed land uses
+mixed land
+mixed-use areas
+modified land
+moister soil
+moisture levels
+moisture retention
+moisture-retained soil
+moisture-retained zones
+moisture-retaining area
+moisture-retentive zones
+moss
+mound
+mounds
+muddy areas
+narrow elongated landmass
+narrow trench
+natural area
+natural boundaries
+natural boundary
+natural clearing
+natural clearings
+natural cover
+natural divisions
+natural drainage patterns
+natural drainage
+natural earth materials
+natural earth surfaces
+natural ecosystems
+natural elements
+natural environment
+natural erosion features
+natural erosion pattern
+natural erosion patterns
+natural erosion
+natural feature
+natural formation
+natural formations
+natural fractures
+natural fragmented land cover
+natural geological boundaries
+natural geological features
+natural geological formation
+natural geological formations
+natural growth
+natural habitat
+natural habitats
+natural land covers
+natural land use
+natural land uses
+natural land
+natural landscapes
+natural plant clusters
+natural sediment deposition
+natural soil cracks
+natural soil
+natural surfaces
+natural terraces
+natural texture
+natural textures
+natural topography
+natural wilderness
+network of linear eroded gullies
+network of thin winding lines
+nutrient depletion
+oases
+ocean or sea
+open area
+open clearings
+open dry area
+open flat areas
+open ground
+open land area
+open land cover
+open land patches
+open land uses
+open ocean
+open or cleared land
+open patches
+open space
+open spaces
+open undeveloped land
+organically enriched soil
+outcrops
+oval-shaped feature
+paddocks
+pale orange area
+paleodrainage features
+parallel lines
+patch boundary
+patches
+patchwork pattern
+patchwork
+patchy land cover
+patchy land use
+paved area
+paved areas
+paved space
+paved surface
+paved surfaces
+peak
+peaks
+pebbles
+pedogenic surfaces
+plants
+plots of land
+plots
+plume
+polygonal patches
+polygonal shapes
+post-harvest areas
+processing facilities
+processing plant
+property boundaries
+property lines
+protrusions
+puddle
+puddles
+rectangles
+rectangular blocks
+rectangular cleared area
+rectangular feature
+rectangular patch
+rectangular patches
+rectangular shapes
+red soil landscapes
+red soil
+reddish areas
+reddish bedrock
+reddish soil
+reddish-brown area
+reddish-brown earth
+reddish-brown landscape
+reddish-brown patch
+reddish-brown patches
+reddish-brown soil patches
+reddish-brown surface
+reddish-brown weathered soil
+reflective surface
+reflective surfaces
+regenerating areas
+rugged
+rugged area
+rugged areas
+rugged landscape
+rural area
+rural areas
+rural community
+rural development
+rural dwellings
+rural land use
+rural land
+rural landscape
+rural landscapes
+rural zones
+rural
+saline deposit
+scree
+seagrass bed
+seagrass
+seasonally dry landscape
+seawater
+secondary growth
+sediment accumulation
+sediment deposit
+sediment distribution
+sediment-dominated environment
+sediment-laden currents
+sediment-rich soil
+sedimentary formation
+sedimentary formations
+sedimentary layer
+sedimentary layers
+sedimentary material
+sedimentary processes
+sedimentary surface
+segmented plots
+semi-developed areas
+semi-natural land covers
+semi-natural land use
+semi-natural landscapes
+semi-rural area
+semi-rural landscape
+shaded regions
+shadow
+shadowed areas
+shadowed region
+shadowed regions
+shadowed soil
+shadowed topographic features
+shadows
+shallow areas
+shallow erosion patterns
+shallow soils
+shallow submerged features
+shallow zones
+small circular areas
+small clearing
+small coves
+small developed area
+small drainage
+small gullies
+small landmass
+small mounds
+small wet area
+small wet areas
+small-scale construction
+smaller land formation
+smooth flat areas
+soil clods
+soil clumps
+soil conditions
+soil cover
+soil deposits
+soil erosion patterns
+soil erosion
+soil exposure
+soil formation
+soil formations
+soil mass
+soil moisture patches
+soil moisture retention
+soil moisture variations
+soil mound
+soil or sediment
+soil patch
+soil patches
+soil rich in iron oxides
+soil variability
+soil-covered areas
+soil-covered region
+soil-covered regions
+soil-covered surfaces
+soil-rich patches
+sparse
+spit of land
+spit
+spits
+squares
+stony ground
+stony surface
+stratification
+stratified layers
+streets
+strip of land
+suburban area
+suburban development
+surface composition
+surface material
+surface materials
+surface moisture content
+surface moisture
+surface reflections
+surface roughness
+surface
+suspended particulate matter
+swales
+swirling patterns
+termite mounds
+terraces
+terrestrial areas
+terrestrial environment
+terrestrial land
+terrestrial landmasses
+terrestrial landscape
+terrestrial region
+terrestrial surface
+terrestrial surfaces
+terrestrial zone
+textured surface
+thicket
+thickets
+thin linear feature
+topographic feature
+topographic features
+topographic low
+topographic variations
+topographical changes
+topographical differences
+topographical feature
+topographical features
+topographical relief
+transition zone
+transitional area
+transitional areas
+transitional boundary
+transitional zone
+transverse stripes
+uncultivated areas
+underbrush
+undergrowth
+underlying geology
+underwater topography
+undeveloped area
+undeveloped areas
+uneven ground
+uneven topography
+unpaved surfaces
+utility easement
+utility lines
+volcanic flows
+volcanic landscape
+volcanic region
+volcanic soil
+volcanic surface
+wall
+wasteland
+weathered bedrock outcrops
+weathered bedrock surface
+weathered bedrock
+weathered landscape
+weathered soil formations
+weathered soil
+weathering effects
+weathering patterns
+weathering processes
+weathering
+weeds
+wet areas
+wet patches
+wet soil areas
+wet soil
+wet spots
+wet surfaces
+wet zones
+wetter areas
+wetter regions
+wetter soil areas
+wetter soil conditions
+wetter soil zones
+wetter soil
+wind erosion
+wind-blown deposits
+wind-blown sediment patterns
+wind-blown sedimentary deposits
+wind-blown sediments
+wind-eroded surfaces
+windblown sediment
+winding linear features
+winding lines
+xeric soil
+yards
+brown landscape
+chaparral
+cracked dry soil
+dark
+dense
+green and yellow-brown mixed land covers
+grid-like pattern of brown squares
+grid-patterned landscape
+hyperarid landscape
+landscape
+natural features
+open sky
+plain
+reddish-brown soil areas
+saline surface
+sedimentary deposit
+terrestrial land covers
