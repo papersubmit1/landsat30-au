@@ -50,11 +50,11 @@ The following VLMs can be installed in this shared environment:
 
 The following CSV files are required for the evaluation process. They contain the ground truth data for various tasks.
 
-*   **Image Captioning (Full Set):**
+*   **Image Captioning (Image Captioning Test Set):**
     *   [captioning_ft_full.csv](https://raw.githubusercontent.com/papersubmit1/landsat30-au/main/lightweight_files/caption_gt/captioning_ft_full.csv)
 *   **Visual Question Answering (VQA Test Set):**
     *   [Landsat30-AU-VQA-test.csv](https://raw.githubusercontent.com/papersubmit1/landsat30-au/main/lightweight_files/vqa_gt/Landsat30-AU-VQA-test.csv)
-*   **Visual Question Answering (One-Shot):**
+*   **Visual Question Answering (One-Shot Set):**
     *   [one_shot.csv](https://raw.githubusercontent.com/papersubmit1/landsat30-au/main/lightweight_files/one_shot_gt/one_shot.csv)
 
 ---
