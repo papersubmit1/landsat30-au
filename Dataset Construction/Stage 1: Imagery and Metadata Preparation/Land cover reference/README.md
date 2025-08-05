@@ -1,0 +1,1 @@
+Please follow the [DEA Land Cover](https://knowledge.dea.ga.gov.au/notebooks/DEA_products/DEA_Land_Cover/) document to load region classification result.

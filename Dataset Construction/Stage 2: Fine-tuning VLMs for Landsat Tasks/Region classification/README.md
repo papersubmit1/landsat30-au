@@ -1,0 +1,1 @@
+We cannot open source our fine-tune region-cls model because it is an OpenAI GPT-4o fine-tune model. We offer the script to convert region_cls_ft_train.csv to OpenAI Playground Fine-Tune API friendly format. 
