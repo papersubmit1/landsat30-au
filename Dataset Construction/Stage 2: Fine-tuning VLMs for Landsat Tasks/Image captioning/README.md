@@ -1,0 +1,1 @@
+We cannot open source our fine-tune image-captioning model because it is an OpenAI GPT-4.1 fine-tune model. We offer the script to convert caption_ft_train.csv to OpenAI Playground Fine-Tune API friendly format. 

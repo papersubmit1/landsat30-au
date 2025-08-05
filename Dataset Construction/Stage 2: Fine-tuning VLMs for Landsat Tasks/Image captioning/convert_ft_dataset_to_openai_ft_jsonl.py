@@ -11,28 +11,47 @@ from typing import List, Dict, Any
 # --- Configuration ---
 BATCH_SIZE = 1000
 IMAGE_DATASET_FOLDER = "BETTER_SETUP_A_SHAREDRIVER_URL_FOR_OEPNAI_FINETUNE"
-REGION_CLS_GT_PATH = "region_cls_ft_train.csv"
-OUTPUT_FILENAME = "region_cls_ft_train_batch.jsonl"
+REGION_CLS_GT_PATH = "caption_ft_train.csv"
+OUTPUT_FILENAME = "caption_ft_train_batch.jsonl"
 
 
 # --- Helper Functions ---
 
-def region_classification_prompt():
-    """Generates prompts for detailed land cover classification."""
-    system_prompt = """You are an advanced assistant for analyzing an optical satellite image. Your role is using the information from image to accurate answers to the questions to the scene.
-Analyze an optical satellite image to classify land cover types. Focus on six classifications: Cultivated Terrestrial Vegetation, Natural Terrestrial Vegetation, Natural Aquatic Vegetation, Artificial Surface, Natural Bare Surfaces, and Water. Pay particular attention to Cultivated Terrestrial Vegetation, Artificial Surface, and Water.
-"""
+def image_captioning_prompt(landcover, landuse):
+    """
+    Generates prompts for creating a detailed caption from image and metadata.
 
-    user_prompt_txt = """Answer these questions:
-1. What land cover classifications can be found in the image?
-2. Divide the image into five sections: top-left, bottom-left, top-right, bottom-right, and center. For each, list classifications in order of area occupied.
-Use this structured format as output:
-{'Land Cover Classifications in Optical Image': [list], 'Top-Left Area': [list], 'Top-Right Area': [list], 'Bottom-Left Area': [list], 'Bottom-Right Area': [list], 'Centre Area': [list]}
+    Args:
+        landcover (str): A string containing land cover information.
+        landuse (str): A string containing land use information.
 
-Examples
-{"Land Cover Classifications in Optical Image": ["Natural Terrestrial Vegetation", "Cultivated Terrestrial Vegetation", "Artificial Surface"],"Top-Left Area": ["Cultivated Terrestrial Vegetation", "Artificial Surface"], "Top-Right Area": ["Natural Terrestrial Vegetation", "Cultivated Terrestrial Vegetation"], "Bottom-Left Area": ["Cultivated Terrestrial Vegetation", "Natural Bare Surface"], "Bottom-Right Area": ["Natural Terrestrial Vegetation", "Natural Bare Surface"], "Centre Area": ["Natural Bare Surface"]}"""
+    Returns:
+        tuple: A tuple containing the system prompt and the user prompt.
+    """
+    system_prompt = """Generate a detailed and concise caption from an optical satellite image using provided metadata.
 
-    return system_prompt, user_prompt_txt
+* Please use image content and land cover information to cross-validate land use information. Please use verifed land use information to finish the caption.
+* Identify all visible water bodies: rivers (describe their path), lakes, ponds; mention locations and relative sizes using area cues (30m x 30m per pixel).
+* Distinguish dominant land cover in each area (bare surface, vegetated, cropland), specify approximate extent or pattern if possible.
+* Identify and size artificial areas (“small town”, “city”) and reference exact locations (e.g., “Top-Left Area”) when relevant.
+* Describe visible urban features only if seen or confirmed in metadata.
+* Note any irrigated field patterns.
+* Describe road corridors, specifying directions and links to urban areas, if visible.
+* Include any spatial references for features (top, bottom, left, right, center).
+* Summarize the balance and dominance between bare and vegetated surfaces.
+* Use the land use metadata to offer insights on overall landscape use.
+* Incorporate color information for the overall image or specific areas (e.g., "The forests appear dark green," or "The river reflects shades of blue"), describing observed hues and any notable color patterns.
+* Caption should be in plain text, clear, and concise without markdown or line breaks."""
+
+    user_prompt = (
+        "The following are the metadata to this satellite image:\n"
+        "Land Cover Information:\n"
+        f"{landcover}\n"
+        "Land Use Information:\n"
+        f"{landuse}"
+    )
+
+    return system_prompt, user_prompt
 
 def validate_jsonl_file(file_path: Path):
     """
@@ -75,7 +94,7 @@ def create_message(
     system_prompt: str,
     user_prompt: str,
     image_path: str,
-    region_cls: str,
+    caption: str,
 ) -> Dict[str, List[Dict[str, Any]]]:
     """
     Creates a message dictionary for a single data entry.
@@ -84,7 +103,7 @@ def create_message(
         system_prompt: The system prompt text.
         user_prompt: The user prompt text.
         image_path: The full URL to the image.
-        region_cls: The expected region_cls for the image.
+        caption: The expected caption for the image.
 
     Returns:
         A dictionary containing the formatted message list.
@@ -96,7 +115,7 @@ def create_message(
 
     image_content = [{"type": "image_url", "image_url": {"url": image_path}}]
     messages.append({"role": "user", "content": json.dumps(image_content)})
-    messages.append({"role": "assistant", "content": region_cls})
+    messages.append({"role": "assistant", "content": caption})
     return {"messages": messages}
 
 
@@ -117,17 +136,21 @@ def generate_fine_tune_batch(
         print(f"Error: Ground truth file not found at {gt_csv_path}")
         return
 
-    system_prompt, user_prompt = region_classification_prompt()
     messages_to_write = []
 
     batch_df = gt_df.head(batch_size)
     for _, row in batch_df.iterrows():
         full_image_path = f"{image_folder}{row['image_path']}"
+        landcover = row['region_cls']
+        landuse = row['landuse']
+        
+        system_prompt, user_prompt = image_captioning_prompt(landcover, landuse)
+
         message = create_message(
             system_prompt,
             user_prompt,
             full_image_path,
-            str(row["gt_region_cls"]),
+            str(row["caption"]),
         )
         messages_to_write.append(message)
 
@@ -136,7 +159,6 @@ def generate_fine_tune_batch(
             f.write(json.dumps(message) + "\n")
 
     print(f"Generated {len(messages_to_write)} messages in {output_filename}")
-    validate_jsonl_file(output_filename)
 
 
 if __name__ == "__main__":
