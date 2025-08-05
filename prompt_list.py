@@ -99,6 +99,43 @@ def image_captioning_prompt(landcover, landuse):
 
     return system_prompt, user_prompt
 
+# ------------------
+# Caption review
+# ------------------
+
+def caption_keep_or_delete_prompt(sentence):
+    """
+    Generates prompts to verify if a caption accurately reflects an image.
+
+    Args:
+        sentence (str): The caption to be evaluated.
+
+    Returns:
+        tuple: A tuple containing the system prompt and the user prompt.
+    """
+    system_prompt = """Check the given image and its corresponding caption (a single sentence) to determine if the caption accurately reflects the content of the image. Respond with either "delete" if the caption does not match the image content or "keep" if it does.
+
+# Output Format
+
+- Respond with a single word: "delete" or "keep".
+
+# Steps
+
+1. Analyze the content of the provided image to understand its main elements and context.
+2. Read the given caption and evaluate its accuracy and relevance to the image content.
+3. Decide whether the caption accurately represents the image.
+4. Respond accordingly with "delete" or "keep".
+
+# Notes
+
+- The caption should be a clear and direct reflection of the image's primary content.
+- Consider the main focus of the image, including any prominent objects, actions, or emotions.
+- "Keep" the caption if it correctly and completely represents the image without ambiguity. Otherwise, choose "delete"."""
+
+    user_prompt = f"The given caption: {sentence}\n"
+
+    return system_prompt, user_prompt
+
 
 # =============================================================================
 # Stage 3: Multi-Stage Caption and VQA Generation
@@ -154,40 +191,6 @@ Mention only one key missing connection or relationship that is clearly visible 
 This will instruct me to avoid referencing absent features in my responses."""
 
     user_prompt = f"The given caption: {caption}\n"
-
-    return system_prompt, user_prompt
-
-
-def caption_keep_or_delete_prompt(given_caption):
-    """
-    Generates prompts to verify if a caption accurately reflects an image.
-
-    Args:
-        given_caption (str): The caption to be evaluated.
-
-    Returns:
-        tuple: A tuple containing the system prompt and the user prompt.
-    """
-    system_prompt = """Check the given image and its corresponding caption (a single sentence) to determine if the caption accurately reflects the content of the image. Respond with either "delete" if the caption does not match the image content or "keep" if it does.
-
-# Output Format
-
-- Respond with a single word: "delete" or "keep".
-
-# Steps
-
-1. Analyze the content of the provided image to understand its main elements and context.
-2. Read the given caption and evaluate its accuracy and relevance to the image content.
-3. Decide whether the caption accurately represents the image.
-4. Respond accordingly with "delete" or "keep".
-
-# Notes
-
-- The caption should be a clear and direct reflection of the image's primary content.
-- Consider the main focus of the image, including any prominent objects, actions, or emotions.
-- "Keep" the caption if it correctly and completely represents the image without ambiguity. Otherwise, choose "delete"."""
-
-    user_prompt = f"The given caption: {given_caption}\n"
 
     return system_prompt, user_prompt
 
